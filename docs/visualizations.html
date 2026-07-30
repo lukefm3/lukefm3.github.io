@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Data Visualizations | Luke F. Miller</title><link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span>LM</span> Luke F. Miller</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Primary"><a href="index.html">Profile</a><a href="experience.html">Experience &amp; Projects</a><a href="research.html">Research</a><a class="active" href="visualizations.html">Data Visualizations</a></nav>
+  </header>
+  <main id="main">
+    <section class="page-intro dashboard-intro"><div class="eyebrow">Automated data demonstration</div><h1>Earthquakes recorded<br><em>in the past day.</em></h1><p class="lede">A live example showing how R can collect, validate, publish, and make public data downloadable through GitHub Actions.</p></section>
+    <section class="dashboard-shell">
+      <div class="dashboard-toolbar">
+        <div><span class="status-dot"></span><b>USGS live feed</b><small id="updated-at">Loading update time…</small></div>
+        <a class="button primary small" href="data/earthquakes.csv" download>Download processed CSV</a>
+      </div>
+      <div class="metric-grid">
+        <div class="metric"><span>Events</span><strong id="event-count">—</strong><small>past 24 hours</small></div>
+        <div class="metric"><span>Largest magnitude</span><strong id="max-mag">—</strong><small id="max-place">loading</small></div>
+        <div class="metric"><span>Average depth</span><strong id="avg-depth">—</strong><small>kilometers</small></div>
+        <div class="metric"><span>Magnitude 4+</span><strong id="large-count">—</strong><small>notable events</small></div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-heading"><div><span class="section-number">Distribution</span><h2>Events by magnitude</h2></div><label>Minimum magnitude <select id="magnitude-filter"><option value="-10">All</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></label></div>
+        <div id="magnitude-chart" class="bar-chart" aria-label="Bar chart of earthquakes by magnitude"></div>
+      </div>
+      <div class="table-panel">
+        <div class="chart-heading"><div><span class="section-number">Recent observations</span><h2>Largest recorded events</h2></div><span id="filter-count" class="muted"></span></div>
+        <div class="table-scroll"><table><thead><tr><th>Magnitude</th><th>Location</th><th>Time (UTC)</th><th>Depth</th></tr></thead><tbody id="event-table"></tbody></table></div>
+      </div>
+    </section>
+    <section class="section split methodology">
+      <div><div class="section-number">Methodology</div><h2>Designed to be replaced.</h2></div>
+      <div class="prose"><p>The R script downloads the USGS “all earthquakes, past day” GeoJSON feed, checks its structure, converts selected fields to a clean CSV, and writes update metadata. The browser reads only those generated files.</p><p>To adapt this, change the source URL and parsing block in <code>R/update_earthquakes.R</code>, then revise the labels and field names in <code>docs/assets/dashboard.js</code>.</p><p><a class="text-link" href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">USGS data source →</a></p></div>
+    </section>
+  </main>
+  <footer><span>Luke F. Miller</span><span>Data source: U.S. Geological Survey</span></footer>
+  <script src="assets/site.js"></script><script src="assets/dashboard.js"></script>
+</body>
+</html>
+

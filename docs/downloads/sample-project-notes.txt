@@ -1,0 +1,15 @@
+SAMPLE PROJECT NOTES
+
+This placeholder demonstrates that the portfolio can distribute arbitrary
+downloadable file types. Replace it with a Word document, Excel workbook,
+script, archive, or other project artifact.
+
+Suggested metadata to add to each project card:
+- Project title
+- Your role
+- Date
+- Problem or research question
+- Methods and tools
+- Result or impact
+- Download and repository links
+
