@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-07-30T15:14:12Z",
+  "generated_at_utc": "2026-07-30T21:22:09Z",
   "source_name": "U.S. Geological Survey - All Earthquakes, Past Day",
   "source_url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
-  "record_count": 246
+  "record_count": 227
 }
