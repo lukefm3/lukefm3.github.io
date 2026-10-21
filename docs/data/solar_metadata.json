@@ -1,0 +1,9 @@
+{
+  "generated_at_utc": "2026-10-21T15:32:11Z",
+  "source_name": "Open-Meteo Weather Forecast API",
+  "source_url": "https://open-meteo.com/en/docs",
+  "locations": 4,
+  "record_count": 864,
+  "performance_ratio": 0.8,
+  "model_description": "Illustrative hourly output for a 1 kW PV system: shortwave radiation / 1000 x 0.80. Not measured generation or a site-specific engineering estimate."
+}

@@ -28,13 +28,13 @@ for page in DOCS.glob("*.html"):
         if not target.exists():
             errors.append(f"{page.name}: missing {link}")
 
-metadata = json.loads((DOCS / "data" / "metadata.json").read_text(encoding="utf-8"))
+metadata = json.loads((DOCS / "data" / "solar_metadata.json").read_text(encoding="utf-8"))
 if metadata.get("record_count", 0) < 1:
     errors.append("metadata.json reports no records")
 
-csv_lines = (DOCS / "data" / "earthquakes.csv").read_text(encoding="utf-8").splitlines()
+csv_lines = (DOCS / "data" / "hawaii_solar.csv").read_text(encoding="utf-8").splitlines()
 if len(csv_lines) < 2:
-    errors.append("earthquakes.csv has no data rows")
+    errors.append("hawaii_solar.csv has no data rows")
 
 if errors:
     print("\n".join(errors))

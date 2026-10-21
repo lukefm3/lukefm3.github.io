@@ -10,19 +10,22 @@ an example R data pipeline that refreshes a visualization automatically.
 - `docs/research.html`: research interests and sample outputs
 - `docs/visualizations.html`: live data visualization page
 - `docs/assets/styles.css`: colors, typography, and layout
-- `R/update_earthquakes.R`: data source, parsing, validation, and output
+- `R/update_solar.R`: solar-forecast source, parsing, validation, and model
 - `.github/workflows/update-data-and-deploy.yml`: schedule and deployment
 - `docs/downloads/`: resume and downloadable project files
 
-## Replace the example data source
+## Live energy demonstration
 
-The example uses the public USGS GeoJSON earthquake feed. To replace it:
+The site uses the public Open-Meteo forecast API to retrieve hourly solar
+radiation, temperature, and cloud cover for four Hawai'i locations. The R
+pipeline validates the feed and publishes a transparent illustrative PV model.
+To adapt it:
 
-1. Edit `source_url` near the top of `R/update_earthquakes.R`.
-2. Replace the parsing section with fields from the new source.
-3. Keep writing a CSV to `docs/data/earthquakes.csv`, or update
+1. Edit the locations, source, or assumptions in `R/update_solar.R`.
+2. Revise the validation and transformation fields as needed.
+3. Keep writing a CSV to `docs/data/hawaii_solar.csv`, or update
    `docs/assets/dashboard.js` to use your new filename and columns.
-4. Run `Rscript R/update_earthquakes.R` locally.
+4. Run `Rscript R/update_solar.R` locally.
 5. Commit and push. The GitHub Action also runs the script automatically.
 
 ## Local preview
@@ -30,7 +33,7 @@ The example uses the public USGS GeoJSON earthquake feed. To replace it:
 From the repository root:
 
 ```powershell
-Rscript R/update_earthquakes.R
+Rscript R/update_solar.R
 python -m http.server 8000 --directory docs
 ```
 

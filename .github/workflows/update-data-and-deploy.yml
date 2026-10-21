@@ -33,8 +33,8 @@ jobs:
 
       - name: Refresh public data
         run: |
-          Rscript R/update_earthquakes.R
-          cp R/update_earthquakes.R docs/downloads/update_earthquakes.R
+          Rscript R/update_solar.R
+          cp R/update_solar.R docs/downloads/update_solar.R
 
       - name: Commit refreshed data
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -42,7 +42,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data/
-          git diff --cached --quiet || git commit -m "data: refresh USGS earthquake feed"
+          git diff --cached --quiet || git commit -m "data: refresh Hawaii solar forecast"
           git push
 
       - name: Configure GitHub Pages
